@@ -289,9 +289,30 @@
         </div>
     </footer>
 
+    <!-- Share Button -->
+    <button onclick="share()" class="fixed bottom-4 right-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full p-3 shadow-lg transition-colors flex items-center space-x-2">
+        <i data-lucide="share-2" class="w-5 h-5"></i>
+        <span>Share</span>
+    </button>
+
+    <script>
+        async function share() {
+            try {
+                await navigator.share({
+                    title: 'Official Lean AI Native Companies Leaderboard',
+                    text: 'Check out this leaderboard tracking lean AI companies revolutionizing the startup world!',
+                    url: window.location.href
+                });
+            } catch (err) {
+                console.log('Share failed:', err);
+                // Fallback to copy to clipboard
+                navigator.clipboard.writeText(window.location.href);
+            }
+        }
+    </script>
+
     <script>
         lucide.createIcons();
-
     </script>
 </body>
 </html>
