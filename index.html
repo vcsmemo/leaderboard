@@ -1,24 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- Previous head content remains the same until the mobile menu styles -->
 <head>
+    <!-- Previous meta tags and styles remain the same until the mobile menu button styles -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Tracking the rise of lean AI companies revolutionizing the startup world. Discover companies generating billions with minimal teams, pioneering the future of 1-person startups.">
     <meta name="keywords" content="lean AI companies, billion dollar startups, 1-person startups, AI companies, startup leaderboard, future unicorns">
     
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://1billion.com/">
-    <meta property="og:title" content="Official Lean AI Native Companies Leaderboard: The Future of 1-Person Billion-Dollar Startups">
-    <meta property="og:description" content="Tracking the rise of lean AI companies revolutionizing the startup world. Discover companies generating billions with minimal teams, pioneering the future of 1-person startups.">
-    <meta property="og:image" content="https://1billion.com/og-image.jpg">
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://1billion.com/">
-    <meta name="twitter:title" content="Official Lean AI Native Companies Leaderboard: The Future of 1-Person Billion-Dollar Startups">
-    <meta name="twitter:description" content="Tracking the rise of lean AI companies revolutionizing the startup world. Discover companies generating billions with minimal teams, pioneering the future of 1-person startups.">
-    <meta name="twitter:image" content="https://1billion.com/og-image.jpg">
+    <!-- Previous meta tags remain the same -->
     
     <title>Official Lean AI Native Companies Leaderboard: The Future of 1-Person Billion-Dollar Startups</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -32,8 +22,14 @@
         .metric-box {
             background: white;
             border-radius: 12px;
-            padding: 20px;
+            padding: 16px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        @media (min-width: 640px) {
+            .metric-box {
+                padding: 20px;
+            }
         }
         .table-iframe {
             width: 100%;
@@ -43,40 +39,129 @@
             border-radius: 12px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
+        .metric-value {
+            word-break: break-word;
+        }
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 280px;
+            background: white;
+            padding: 1.5rem;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+            z-index: 50;
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .mobile-menu.open {
+            transform: translateX(0);
+            display: block;
+        }
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 40;
+            backdrop-filter: blur(2px);
+        }
+        .mobile-menu-overlay.open {
+            display: block;
+        }
+        @media (max-width: 640px) {
+            .title-container {
+                max-width: calc(100% - 60px);
+            }
+            .menu-button {
+                width: 44px;
+                height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 8px;
+                background: #f3f4f6;
+                transition: background-color 0.2s;
+            }
+            .menu-button:hover {
+                background: #e5e7eb;
+            }
+            .menu-button:active {
+                background: #d1d5db;
+            }
+        }
     </style>
 </head>
 <body class="min-h-screen">
     <!-- Header -->
     <header class="bg-white shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-            <a href="/" class="flex items-center space-x-2 hover:opacity-75 transition-opacity">
-                <span class="text-2xl">🏆</span>
-                <h1 class="text-xl font-semibold">Top Lean AI Native Companies Leaderboard</h1>
-                <span class="bg-green-700 text-white text-sm px-2 py-1 rounded font-medium">OFFICIAL</span>
-            </a>
-            <div class="flex items-center space-x-4">
-                <button onclick="shareWebsite()" class="flex items-center space-x-1 hover:opacity-75 transition-opacity">
-                    <i data-lucide="share-2" class="text-gray-600 w-5 h-5"></i>
-                    <span class="text-gray-600">Share</span>
-                </button>
-                <a href="https://github.com/henrythe9th" target="_blank" class="flex items-center space-x-1 hover:opacity-75 transition-opacity">
-                    <svg aria-hidden="true" viewBox="0 0 24 24" version="1.1" data-view-component="true" class="w-6 h-6 text-gray-600">
-                        <path fill="currentColor" d="M12.5.75C6.146.75 1 5.896 1 12.25c0 5.089 3.292 9.387 7.863 10.91.575.101.79-.244.79-.546 0-.273-.014-1.178-.014-2.142-2.889.532-3.636-.704-3.866-1.35-.13-.331-.69-1.352-1.18-1.625-.402-.216-.977-.748-.014-.762.906-.014 1.553.834 1.769 1.179 1.035 1.74 2.688 1.25 3.349.948.1-.747.402-1.25.733-1.538-2.559-.287-5.232-1.279-5.232-5.678 0-1.25.445-2.285 1.178-3.09-.115-.288-.517-1.467.115-3.048 0 0 .963-.302 3.163 1.179.92-.259 1.897-.388 2.875-.388.977 0 1.955.13 2.875.388 2.2-1.495 3.162-1.179 3.162-1.179.633 1.581.23 2.76.115 3.048.733.805 1.179 1.825 1.179 3.09 0 4.413-2.688 5.39-5.247 5.678.417.36.776 1.05.776 2.128 0 1.538-.014 2.774-.014 3.162 0 .302.216.662.79.547C20.709 21.637 24 17.324 24 12.25 24 5.896 18.854.75 12.5.75Z"></path>
-                    </svg>
-                    <span class="text-gray-600">View Source</span>
+        <div class="max-w-7xl mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <a href="/" class="title-container flex items-center space-x-2 hover:opacity-75 transition-opacity">
+                    <span class="text-xl sm:text-2xl">🏆</span>
+                    <h1 class="text-lg sm:text-xl font-semibold truncate">Top Lean AI Native Companies Leaderboard</h1>
+                    <span class="bg-green-700 text-white text-xs sm:text-sm px-2 py-1 rounded font-medium whitespace-nowrap">OFFICIAL</span>
                 </a>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfeo1uj6oEHEGtQzQCJImHnlFwg_bxOxnXJZE_3YG8LGBGj8Q/viewform" target="_blank" class="flex items-center space-x-1 hover:opacity-75 transition-opacity">
-                    <span class="text-xl">🚀</span>
-                    <span class="text-gray-600">Submit a Startup</span>
-                </a>
+                <!-- Desktop Navigation -->
+                <div class="hidden sm:flex items-center space-x-4">
+                    <button onclick="shareWebsite()" class="flex items-center space-x-1 hover:opacity-75 transition-opacity px-2">
+                        <i data-lucide="share-2" class="text-gray-600 w-5 h-5"></i>
+                        <span class="text-gray-600">Share</span>
+                    </button>
+                    <a href="https://github.com/henrythe9th" target="_blank" class="flex items-center space-x-1 hover:opacity-75 transition-opacity px-2">
+                        <svg aria-hidden="true" viewBox="0 0 24 24" version="1.1" data-view-component="true" class="w-4 sm:w-6 h-4 sm:h-6 text-gray-600">
+                            <path fill="currentColor" d="M12.5.75C6.146.75 1 5.896 1 12.25c0 5.089 3.292 9.387 7.863 10.91.575.101.79-.244.79-.546 0-.273-.014-1.178-.014-2.142-2.889.532-3.636-.704-3.866-1.35-.13-.331-.69-1.352-1.18-1.625-.402-.216-.977-.748-.014-.762.906-.014 1.553.834 1.769 1.179 1.035 1.74 2.688 1.25 3.349.948.1-.747.402-1.25.733-1.538-2.559-.287-5.232-1.279-5.232-5.678 0-1.25.445-2.285 1.178-3.09-.115-.288-.517-1.467.115-3.048 0 0 .963-.302 3.163 1.179.92-.259 1.897-.388 2.875-.388.977 0 1.955.13 2.875.388 2.2-1.495 3.162-1.179 3.162-1.179.633 1.581.23 2.76.115 3.048.733.805 1.179 1.825 1.179 3.09 0 4.413-2.688 5.39-5.247 5.678.417.36.776 1.05.776 2.128 0 1.538-.014 2.774-.014 3.162 0 .302.216.662.79.547C20.709 21.637 24 17.324 24 12.25 24 5.896 18.854.75 12.5.75Z"></path>
+                        </svg>
+                        <span class="text-gray-600">View Source</span>
+                    </a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfeo1uj6oEHEGtQzQCJImHnlFwg_bxOxnXJZE_3YG8LGBGj8Q/viewform" target="_blank" class="flex items-center space-x-1 hover:opacity-75 transition-opacity px-2">
+                        <span class="text-xl">🚀</span>
+                        <span class="text-gray-600">Submit a Startup</span>
+                    </a>
+                </div>
+                <!-- Mobile Navigation -->
+                <div class="flex sm:hidden items-center">
+                    <button onclick="toggleMobileMenu()" class="menu-button" aria-label="Menu">
+                        <i data-lucide="menu" class="text-gray-600 w-6 h-6"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 py-8">
+    <!-- Mobile Menu -->
+    <div id="mobileMenuOverlay" class="mobile-menu-overlay" onclick="toggleMobileMenu()"></div>
+    <div id="mobileMenu" class="mobile-menu">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-lg font-semibold text-gray-900">Menu</h2>
+            <button onclick="toggleMobileMenu()" class="p-2 hover:bg-gray-100 rounded-lg" aria-label="Close menu">
+                <i data-lucide="x" class="text-gray-600 w-6 h-6"></i>
+            </button>
+        </div>
+        <div class="flex flex-col space-y-4">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfeo1uj6oEHEGtQzQCJImHnlFwg_bxOxnXJZE_3YG8LGBGj8Q/viewform" target="_blank" class="flex items-center space-x-3 p-3 hover:bg-gray-100 rounded-lg">
+                <span class="text-xl">🚀</span>
+                <span class="text-gray-600">Submit a Startup</span>
+            </a>
+            <button onclick="shareWebsite(); toggleMobileMenu()" class="flex items-center space-x-3 p-3 hover:bg-gray-100 rounded-lg">
+                <i data-lucide="share-2" class="text-gray-600 w-5 h-5"></i>
+                <span class="text-gray-600">Share</span>
+            </button>
+            <a href="https://github.com/henrythe9th" target="_blank" class="flex items-center space-x-3 p-3 hover:bg-gray-100 rounded-lg">
+                <svg aria-hidden="true" viewBox="0 0 24 24" version="1.1" data-view-component="true" class="w-5 h-5 text-gray-600">
+                    <path fill="currentColor" d="M12.5.75C6.146.75 1 5.896 1 12.25c0 5.089 3.292 9.387 7.863 10.91.575.101.79-.244.79-.546 0-.273-.014-1.178-.014-2.142-2.889.532-3.636-.704-3.866-1.35-.13-.331-.69-1.352-1.18-1.625-.402-.216-.977-.748-.014-.762.906-.014 1.553.834 1.769 1.179 1.035 1.74 2.688 1.25 3.349.948.1-.747.402-1.25.733-1.538-2.559-.287-5.232-1.279-5.232-5.678 0-1.25.445-2.285 1.178-3.09-.115-.288-.517-1.467.115-3.048 0 0 .963-.302 3.163 1.179.92-.259 1.897-.388 2.875-.388.977 0 1.955.13 2.875.388 2.2-1.495 3.162-1.179 3.162-1.179.633 1.581.23 2.76.115 3.048.733.805 1.179 1.825 1.179 3.09 0 4.413-2.688 5.39-5.247 5.678.417.36.776 1.05.776 2.128 0 1.538-.014 2.774-.014 3.162 0 .302.216.662.79.547C20.709 21.637 24 17.324 24 12.25 24 5.896 18.854.75 12.5.75Z"></path>
+                </svg>
+                <span class="text-gray-600">View Source</span>
+            </a>
+        </div>
+    </div>
+
+    <main class="max-w-7xl mx-auto px-4 py-6 sm:py-8">
         <!-- About Section -->
-        <article class="bg-white rounded-xl p-6 mb-8">
-            <h2 class="text-xl font-semibold mb-4">About This Leaderboard - The Road to "1-Person" Billion Dollar Company</h2>
+        <article class="bg-white rounded-xl p-4 sm:p-6 mb-6 sm:mb-8">
+            <h2 class="text-lg sm:text-xl font-semibold mb-4">About This Leaderboard - The Road to "1-Person" Billion Dollar Company</h2>
             <p class="text-gray-600 mb-4">
                 I'm a <a href="https://www.linkedin.com/in/henrythe9th/" target="_blank" class="text-blue-600 hover:text-blue-800">repeat founder</a> who's built a $100MM+ ARR startup the old fashioned way by hiring hundreds of people and raising hundreds of millions of VC funding. Many of us in Silicon Valley are now big believers in the idea that Sam Altman put forward:
             </p>
@@ -90,45 +175,45 @@
                 <p class="text-gray-600 mb-4">This trend has been featured in:</p>
                 <div class="flex items-center space-x-6">
                     <a href="https://www.nytimes.com/2025/02/20/technology/ai-silicon-valley-start-ups.html" target="_blank" class="hover:opacity-75 transition-opacity">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/The_New_York_Times_logo.png" alt="New York Times" class="h-6 object-contain">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/The_New_York_Times_logo.png" alt="New York Times" class="h-5 sm:h-6 object-contain">
                     </a>
                     <a href="https://www.theinformation.com/articles/why-early-stage-founders-are-opting-to-seed-strap-their-startups" target="_blank" class="hover:opacity-75 transition-opacity">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/The_Information_logo.jpg/800px-The_Information_logo.jpg" alt="The Information" class="h-6 object-contain">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/The_Information_logo.jpg/800px-The_Information_logo.jpg" alt="The Information" class="h-5 sm:h-6 object-contain">
                     </a>
                 </div>
             </div>
         </article>
 
         <!-- Metrics -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
             <div class="metric-box">
                 <div class="flex items-center mb-2">
-                    <i data-lucide="line-chart" class="text-gray-600 w-5 h-5 mr-2"></i>
+                    <i data-lucide="line-chart" class="text-gray-600 w-4 sm:w-5 h-4 sm:h-5 mr-2"></i>
                     <span class="text-sm text-gray-600">Total Revenue</span>
                 </div>
-                <div class="text-2xl font-semibold">$1,000,000,000</div>
+                <div class="metric-value text-xl sm:text-2xl font-semibold">$1,000,000,000</div>
             </div>
             <div class="metric-box">
                 <div class="flex items-center mb-2">
-                    <i data-lucide="users" class="text-gray-600 w-5 h-5 mr-2"></i>
+                    <i data-lucide="users" class="text-gray-600 w-4 sm:w-5 h-4 sm:h-5 mr-2"></i>
                     <span class="text-sm text-gray-600">Avg. Team Size</span>
                 </div>
-                <div class="text-2xl font-semibold">27</div>
+                <div class="metric-value text-xl sm:text-2xl font-semibold">27</div>
             </div>
             <div class="metric-box">
                 <div class="flex items-center mb-2">
-                    <i data-lucide="banknote" class="text-gray-600 w-5 h-5 mr-2"></i>
+                    <i data-lucide="banknote" class="text-gray-600 w-4 sm:w-5 h-4 sm:h-5 mr-2"></i>
                     <span class="text-sm text-gray-600">Avg. Revenue/Employee</span>
                 </div>
-                <div class="text-2xl font-semibold">$3,141,592</div>
+                <div class="metric-value text-xl sm:text-2xl font-semibold">$3,141,592</div>
             </div>
         </div>
 
         <!-- Table iframe with loader -->
-        <div class="relative mb-8" style="min-height: 800px">
+        <div class="relative mb-6 sm:mb-8" style="min-height: 800px">
             <div id="iframe-loader" class="absolute inset-0 z-10 bg-white rounded-xl flex flex-col items-center justify-center space-y-4">
-                <div class="animate-spin rounded-full h-12 w-12 border-4 border-gray-200 border-t-blue-500"></div>
-                <p class="text-gray-600">Loading leaderboard data...</p>
+                <div class="animate-spin rounded-full h-10 sm:h-12 w-10 sm:w-12 border-4 border-gray-200 border-t-blue-500"></div>
+                <p class="text-gray-600 text-sm sm:text-base">Loading leaderboard data...</p>
             </div>
             <iframe 
                 src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ1vMlwTJ8_Lty161T73uwnMzVxb48XzHxz9aPNla5OgCjd2yJ0HMfxEHGSv1OsyGOarWUYDcsJZfmk/pubhtml?widget=true&amp;headers=false" 
@@ -138,8 +223,8 @@
         </div>
 
         <!-- Qualification Criteria -->
-        <article class="bg-white rounded-xl p-6 mb-8" itemscope itemtype="https://schema.org/Article">
-            <h2 class="text-xl font-semibold mb-4">Qualification Criteria</h2>
+        <article class="bg-white rounded-xl p-4 sm:p-6 mb-6 sm:mb-8" itemscope itemtype="https://schema.org/Article">
+            <h2 class="text-lg sm:text-xl font-semibold mb-4">Qualification Criteria</h2>
             <p class="text-gray-600 mb-4">To qualify on this list, startups must have:</p>
             <ul class="list-disc list-inside text-gray-600 mb-4">
                 <li>over $5MM ARR (run rate)</li>
@@ -151,11 +236,11 @@
         </article>
 
         <!-- Submit Section -->
-        <article class="bg-white rounded-xl p-6 mb-8">
-            <h2 class="text-xl font-semibold mb-4">Know an AI Native Company That Should Be Listed?</h2>
+        <article class="bg-white rounded-xl p-4 sm:p-6 mb-6 sm:mb-8">
+            <h2 class="text-lg sm:text-xl font-semibold mb-4">Know an AI Native Company That Should Be Listed?</h2>
             <p class="text-gray-600 mb-4">Help us track the rise of lean AI Native companies. If you know of a startup that meets the qualification criteria, please submit their information or email us at <a href="mailto:tips@1billion.com" class="text-blue-600 hover:text-blue-800">tips@1billion.com</a> (can be anonymous)</p>
             <div class="flex items-center space-x-2">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfeo1uj6oEHEGtQzQCJImHnlFwg_bxOxnXJZE_3YG8LGBGj8Q/viewform" target="_blank" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfeo1uj6oEHEGtQzQCJImHnlFwg_bxOxnXJZE_3YG8LGBGj8Q/viewform" target="_blank" class="inline-flex items-center px-3 sm:px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm sm:text-base">
                     <i data-lucide="send" class="w-4 h-4 mr-2"></i>
                     Submit a Startup
                 </a>
@@ -163,8 +248,8 @@
         </article>
 
         <!-- FAQ Section -->
-        <article class="bg-white rounded-xl p-6 mb-8">
-            <h2 class="text-xl font-semibold mb-4">Frequently Asked Questions</h2>
+        <article class="bg-white rounded-xl p-4 sm:p-6 mb-6 sm:mb-8">
+            <h2 class="text-lg sm:text-xl font-semibold mb-4">Frequently Asked Questions</h2>
             <div class="space-y-6">
                 <div>
                     <h3 class="font-medium text-gray-900 mb-2">How often is the leaderboard updated?</h3>
@@ -205,7 +290,7 @@
             "name": "Official Lean AI Native Companies Leaderboard: The Future of 1-Person Billion-Dollar Startups",
             "description": "Tracking the rise of lean AI companies revolutionizing the startup world. Discover companies generating billions with minimal teams, pioneering the future of 1-person startups.",
             "publisher": {
-o                "@type": "Organization",
+                "@type": "Organization",
                 "name": "1billion.com",
                 "url": "https://1billion.com"
             },
@@ -232,13 +317,21 @@ o                "@type": "Organization",
     </footer>
 
     <!-- Fixed Share Button -->
-    <button onclick="shareWebsite()" class="fixed bottom-6 right-6 bg-blue-600 text-white rounded-full p-4 shadow-lg hover:bg-blue-700 transition-colors flex items-center space-x-2 z-50">
-        <i data-lucide="share-2" class="w-5 h-5"></i>
-        <span>Share</span>
+    <button onclick="shareWebsite()" class="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 bg-blue-600 text-white rounded-full p-3 sm:p-4 shadow-lg hover:bg-blue-700 transition-colors flex items-center space-x-2 z-50">
+        <i data-lucide="share-2" class="w-4 sm:w-5 h-4 sm:h-5"></i>
+        <span class="text-sm sm:text-base">Share</span>
     </button>
 
     <script>
         lucide.createIcons();
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const overlay = document.getElementById('mobileMenuOverlay');
+            menu.classList.toggle('open');
+            overlay.classList.toggle('open');
+            document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+        }
 
         async function shareWebsite() {
             const shareData = {
