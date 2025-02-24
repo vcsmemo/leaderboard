@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Previous meta tags and styles remain the same until the mobile menu button styles -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Tracking the rise of lean AI native companies revolutionizing the startup world. Discover companies generating billions with minimal teams, pioneering the future of 1-person startups.">
     <meta name="keywords" content="lean AI native companies, startup leaderboard, billion dollar startups, 1-person startups, AI companies, future unicorns">
-    
-    <!-- Previous meta tags remain the same -->
-    
     <title>Official Lean AI Native Companies Leaderboard: The Future of 1-Person Billion-Dollar Startups</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -45,21 +41,20 @@
             .mobile-header {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 16px;
+                gap: 8px;
             }
             .title-container {
                 max-width: 100%;
-                margin-bottom: -4px; /* Optical adjustment */
             }
             .mobile-actions {
                 width: 100%;
                 display: flex;
-                gap: 10px;
-                padding: 0 2px; /* Slight inset */
+                gap: 8px;
+                padding: 0;
             }
             .mobile-action-btn {
                 flex: 1;
-                min-width: 0; /* Allow text to wrap if needed */
+                min-width: 0;
                 padding: 7px 10px;
                 border-radius: 6px;
                 background: #f3f4f6;
@@ -69,8 +64,9 @@
                 gap: 6px;
                 transition: background-color 0.2s;
                 white-space: nowrap;
-                font-size: 0.875rem; /* 14px */
+                font-size: 0.875rem;
                 line-height: 1.25;
+                height: 32px;
             }
             .mobile-action-btn:hover {
                 background: #e5e7eb;
@@ -79,24 +75,24 @@
                 background: #d1d5db;
             }
             .mobile-action-btn svg {
-                width: 1.125rem; /* 18px */
-                height: 1.125rem;
+                width: 18px;
+                height: 18px;
             }
             .mobile-action-btn .text-xl {
-                font-size: 1.125rem; /* 18px */
+                font-size: 18px;
             }
         }
     </style>
 </head>
 <body class="min-h-screen">
     <!-- Header -->
-    <header class="bg-white shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 py-4">
+    <header class="bg-white/95 backdrop-blur-sm shadow-sm fixed top-0 left-0 w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 sm:py-4">
             <div class="flex items-center justify-between mobile-header">
                 <a href="/" class="title-container flex items-center space-x-2 hover:opacity-75 transition-opacity">
-                    <span class="text-xl sm:text-2xl">🏆</span>
+                    <span class="text-lg sm:text-2xl">🏆</span>
                     <h1 class="text-lg sm:text-xl font-semibold">Top Lean AI Native Companies Leaderboard</h1>
-                    <span class="bg-green-700 text-white text-xs sm:text-sm px-2 py-1 rounded font-medium whitespace-nowrap">OFFICIAL</span>
+                    <span class="bg-green-700 text-white text-[12px] sm:text-sm px-1.5 py-1 sm:px-2 sm:py-1 rounded font-medium whitespace-nowrap">OFFICIAL</span>
                 </a>
                 <!-- Navigation (Desktop & Mobile) -->
                 <div class="flex items-center w-full sm:w-auto">
@@ -108,7 +104,7 @@
                             <span class="text-gray-600">View Source</span>
                         </a>
                         <a href="https://docs.google.com/forms/d/e/1FAIpQLSfeo1uj6oEHEGtQzQCJImHnlFwg_bxOxnXJZE_3YG8LGBGj8Q/viewform" target="_blank" class="flex items-center space-x-1 hover:opacity-75 transition-opacity px-2">
-                            <span class="text-xl">🚀</span>
+                            <span class="text-[18px]">🚀</span>
                             <span class="text-gray-600">Submit a Startup</span>
                         </a>
                     </div>
@@ -120,7 +116,7 @@
                             <span class="text-gray-600">View Source</span>
                         </a>
                         <a href="https://docs.google.com/forms/d/e/1FAIpQLSfeo1uj6oEHEGtQzQCJImHnlFwg_bxOxnXJZE_3YG8LGBGj8Q/viewform" target="_blank" class="mobile-action-btn" aria-label="Submit a Startup">
-                            <span class="text-xl">🚀</span>
+                            <span class="text-[18px]">🚀</span>
                             <span class="text-gray-600">Submit a Startup</span>
                         </a>
                     </div>
@@ -129,8 +125,7 @@
         </div>
     </header>
 
-
-    <main class="max-w-7xl mx-auto px-4 py-6 sm:py-8">
+    <main class="max-w-7xl mx-auto px-4 py-6 sm:py-8 mt-[110px] sm:mt-[50px]">
         <!-- About Section -->
         <article class="bg-white rounded-xl p-4 sm:p-6 mb-6 sm:mb-8">
             <h2 class="text-lg sm:text-xl font-semibold mb-4">About This Leaderboard - The Road to "1-Person" Billion Dollar Company</h2>
