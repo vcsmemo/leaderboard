@@ -42,6 +42,7 @@
             margin-top: 4px;
             position: relative;
             padding-top: 12px;
+            padding-bottom: 4px;
         }
         .progress-percentage {
             position: absolute;
@@ -64,7 +65,7 @@
             height: 100%;
             background: #3b82f6;
             border-radius: 2px;
-            transition: width 0.3s ease;
+            transition: width 1s ease;
         }
         .progress-bar-labels {
             display: flex;
@@ -118,6 +119,8 @@
             }
         }
     </style>
+    <!-- Include progress calculator script -->
+    <script src="progress-calculator.js"></script>
 </head>
 <body class="min-h-screen">
     <!-- Header -->
@@ -204,9 +207,9 @@
                 <div class="metric-value text-xl sm:text-2xl font-semibold">$3,354,318</div>
                 <div class="progress-bar-container">
                     <div class="progress-bar">
-                        <div class="progress-bar-fill" style="width: 3%"></div>
+                        <div class="progress-bar-fill" style="width: 0%"></div>
                     </div>
-                    <div class="progress-percentage" style="left: calc(3%)">3%</div>
+                    <div class="progress-percentage" style="left: 0%">0%</div>
                     <div class="progress-bar-labels">
                         <span>$0</span>
                         <span>$100MM</span>
@@ -221,9 +224,9 @@
                 <div class="metric-value text-xl sm:text-2xl font-semibold">$144,522,351</div>
                 <div class="progress-bar-container">
                     <div class="progress-bar">
-                        <div class="progress-bar-fill" style="width: 14%"></div>
+                        <div class="progress-bar-fill" style="width: 0%"></div>
                     </div>
-                    <div class="progress-percentage" style="left: calc(14%)">14%</div>
+                    <div class="progress-percentage" style="left: 0%">0%</div>
                     <div class="progress-bar-labels">
                         <span>$0</span>
                         <span>$1B</span>
@@ -238,9 +241,9 @@
                 <div class="metric-value text-xl sm:text-2xl font-semibold">29</div>
                 <div class="progress-bar-container">
                     <div class="progress-bar">
-                        <div class="progress-bar-fill" style="width: 71%"></div>
+                        <div class="progress-bar-fill" style="width: 0%"></div>
                     </div>
-                    <div class="progress-percentage" style="left: calc(71%)">71%</div>
+                    <div class="progress-percentage" style="left: 0%">0%</div>
                     <div class="progress-bar-labels">
                         <span>100</span>
                         <span>1</span>
