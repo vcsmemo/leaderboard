@@ -1,24 +1,37 @@
-// Configuration for progress calculations
+// Configuration for progress calculations and metrics
 const progressConfig = {
+    totalRevenue: {
+        value: 1680000000
+    },
     revenuePerEmployee: {
-        value: 3354318, // $3,354,318
+        value: 3231616,
         maxValue: 100000000, // $100MM
         minValue: 0,
         reverseScale: false // Higher is better
     },
     valuationPerEmployee: {
-        value: 144522351, // $144,522,351
+        value: 144522351,
         maxValue: 1000000000, // $1B
         minValue: 0,
         reverseScale: false // Higher is better
     },
     teamSize: {
-        value: 29, // 29 employees
+        value: 27,
         maxValue: 100,
         minValue: 1,
         reverseScale: true // Lower is better (closer to 1-person company)
     }
 };
+
+// Format number as currency with $ and commas
+function formatCurrency(value) {
+    return '$' + value.toLocaleString('en-US');
+}
+
+// Format number with commas
+function formatNumber(value) {
+    return value.toLocaleString('en-US');
+}
 
 // Calculate percentages based on configuration
 function calculatePercentage(config) {
@@ -34,91 +47,69 @@ function calculatePercentage(config) {
     return Math.max(0, Math.min(100, percentage));
 }
 
-// Calculate and update progress bars when the page loads
+// Function to update progress bar with animation
+function updateProgressBar(bar, percentText, percentage) {
+    // Set initial width to 0 to ensure animation works
+    bar.style.width = '0%';
+    percentText.style.left = '0%';
+    percentText.textContent = '0%';
+    
+    // Force a reflow to ensure the animation works
+    void bar.offsetWidth;
+    
+    // Use setTimeout to ensure the browser registers the initial state before animating
+    setTimeout(() => {
+        // Now set the actual width
+        bar.style.width = `${percentage}%`;
+        percentText.style.left = `${percentage}%`;
+        percentText.textContent = `${Math.round(percentage)}%`;
+    }, 50);
+}
+
+// Calculate and update progress bars and metric values when the page loads
 window.addEventListener('DOMContentLoaded', () => {
     // Calculate percentages
     const revenuePercentage = calculatePercentage(progressConfig.revenuePerEmployee);
     const valuationPercentage = calculatePercentage(progressConfig.valuationPerEmployee);
     const teamSizePercentage = calculatePercentage(progressConfig.teamSize);
     
-    console.log('Calculated percentages:', {
-        revenuePercentage,
-        valuationPercentage,
-        teamSizePercentage
-    });
-    
     try {
         // Get all metric boxes
         const metricBoxes = document.querySelectorAll('.metric-box');
-        console.log('Found metric boxes:', metricBoxes.length);
         
         if (metricBoxes.length >= 4) {
-            // Revenue per employee (2nd box)
-            const revenueBox = metricBoxes[1];
-            const revenueBar = revenueBox.querySelector('.progress-bar-fill');
-            const revenuePercentText = revenueBox.querySelector('.progress-percentage');
+            // Total Revenue (1st box)
+            metricBoxes[0].querySelector('.metric-value').textContent = 
+                formatCurrency(progressConfig.totalRevenue.value);
             
-            if (revenueBar && revenuePercentText) {
-                // Set initial width to 0 to ensure animation works
-                revenueBar.style.width = '0%';
-                
-                // Force a reflow to ensure the animation works
-                void revenueBar.offsetWidth;
-                
-                // Now set the actual width
-                revenueBar.style.width = `${revenuePercentage}%`;
-                revenuePercentText.style.left = `calc(${revenuePercentage}%)`;
-                revenuePercentText.textContent = `${Math.round(revenuePercentage)}%`;
-                console.log('Updated revenue progress bar to', revenuePercentage, '%');
-            } else {
-                console.error('Could not find revenue progress bar elements');
-            }
+            // Revenue per employee (2nd box)
+            metricBoxes[1].querySelector('.metric-value').textContent = 
+                formatCurrency(progressConfig.revenuePerEmployee.value);
+            updateProgressBar(
+                metricBoxes[1].querySelector('.progress-bar-fill'),
+                metricBoxes[1].querySelector('.progress-percentage'),
+                revenuePercentage
+            );
             
             // Valuation per employee (3rd box)
-            const valuationBox = metricBoxes[2];
-            const valuationBar = valuationBox.querySelector('.progress-bar-fill');
-            const valuationPercentText = valuationBox.querySelector('.progress-percentage');
-            
-            if (valuationBar && valuationPercentText) {
-                // Set initial width to 0 to ensure animation works
-                valuationBar.style.width = '0%';
-                
-                // Force a reflow to ensure the animation works
-                void valuationBar.offsetWidth;
-                
-                // Now set the actual width
-                valuationBar.style.width = `${valuationPercentage}%`;
-                valuationPercentText.style.left = `calc(${valuationPercentage}%)`;
-                valuationPercentText.textContent = `${Math.round(valuationPercentage)}%`;
-                console.log('Updated valuation progress bar to', valuationPercentage, '%');
-            } else {
-                console.error('Could not find valuation progress bar elements');
-            }
+            metricBoxes[2].querySelector('.metric-value').textContent = 
+                formatCurrency(progressConfig.valuationPerEmployee.value);
+            updateProgressBar(
+                metricBoxes[2].querySelector('.progress-bar-fill'),
+                metricBoxes[2].querySelector('.progress-percentage'),
+                valuationPercentage
+            );
             
             // Team size (4th box)
-            const teamSizeBox = metricBoxes[3];
-            const teamSizeBar = teamSizeBox.querySelector('.progress-bar-fill');
-            const teamSizePercentText = teamSizeBox.querySelector('.progress-percentage');
-            
-            if (teamSizeBar && teamSizePercentText) {
-                // Set initial width to 0 to ensure animation works
-                teamSizeBar.style.width = '0%';
-                
-                // Force a reflow to ensure the animation works
-                void teamSizeBar.offsetWidth;
-                
-                // Now set the actual width
-                teamSizeBar.style.width = `${teamSizePercentage}%`;
-                teamSizePercentText.style.left = `calc(${teamSizePercentage}%)`;
-                teamSizePercentText.textContent = `${Math.round(teamSizePercentage)}%`;
-                console.log('Updated team size progress bar to', teamSizePercentage, '%');
-            } else {
-                console.error('Could not find team size progress bar elements');
-            }
-        } else {
-            console.error('Not enough metric boxes found');
+            metricBoxes[3].querySelector('.metric-value').textContent = 
+                formatNumber(progressConfig.teamSize.value);
+            updateProgressBar(
+                metricBoxes[3].querySelector('.progress-bar-fill'),
+                metricBoxes[3].querySelector('.progress-percentage'),
+                teamSizePercentage
+            );
         }
     } catch (error) {
-        console.error('Error updating progress bars:', error);
+        console.error('Error updating metrics:', error);
     }
 });
