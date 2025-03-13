@@ -13,7 +13,7 @@ The initiative is inspired by Sam Altman's vision:
 
 🔗 **[View the Live Leaderboard](https://1billion.com)**
 
-[![AI Native Companies Leaderboard Screenshot](https://i.ibb.co/PvvSyVbk/image.png)](https://1billion.com)
+[![AI Native Companies Leaderboard Screenshot](https://i.ibb.co/h1Ypr3Bs/image.png)](https://1billion.com)
 
 *Click the screenshot to visit the live leaderboard*
 
@@ -56,8 +56,8 @@ We verify submissions through multiple sources including public records, company
 ## Contributing
 
 Know an AI Native company that should be listed? You can (anonymously):
-1. Submit via the [submission form](https://docs.google.com/forms/d/e/1FAIpQLSfeo1uj6oEHEGtQzQCJImHnlFwg_bxOxnXJZE_3YG8LGBGj8Q/viewform)
-2. Email tips to [tips@1billion.com](mailto:tips@1billion.com)
+1. Submit via the [submission form](https://forms.gle/ceEFvWH9nPiD2bMT8)
+2. Email tips to [tips@leanaileaderboard.com](mailto:tips@leanaileaderboard.com)
 3. Submit a Pull Request to this repository
 
 ## Contact
