@@ -13,7 +13,7 @@ The initiative is inspired by Sam Altman's vision:
 
 🔗 **[View the Live Leaderboard](https://leanaileaderboard.com)**
 
-[![AI Native Companies Leaderboard Screenshot](https://i.ibb.co/WvH6NCrs/image.png)](https://leanaileaderboard.com)
+[![AI Native Companies Leaderboard Screenshot](https://github.com/user-attachments/assets/e069c40b-adb0-43ca-b98c-78580ddf826b)](https://leanaileaderboard.com)
 
 *Click the screenshot to visit the live leaderboard*
 
