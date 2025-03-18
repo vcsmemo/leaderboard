@@ -11,9 +11,9 @@ The initiative is inspired by Sam Altman's vision:
 
 ## Live Site
 
-🔗 **[View the Live Leaderboard](https://1billion.com)**
+🔗 **[View the Live Leaderboard](https://leanaileaderboard.com)**
 
-[![AI Native Companies Leaderboard Screenshot](https://i.ibb.co/h1Ypr3Bs/image.png)](https://1billion.com)
+[![AI Native Companies Leaderboard Screenshot](https://i.ibb.co/WvH6NCrs/image.png)](https://leanaileaderboard.com)
 
 *Click the screenshot to visit the live leaderboard*
 
