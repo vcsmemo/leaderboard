@@ -4,7 +4,7 @@ The official leaderboard tracking the rise of lean AI native companies that are 
 
 ## About
 
-This leaderboard tracks AI Native companies that demonstrate the potential of artificial intelligence to enable small teams to achieve outsized results. The project was created by [Henry Shi](https://www.linkedin.com/in/henrythe9th/), a repeat founder who previously built a $100MM+ ARR startup.
+This leaderboard tracks AI Native companies that demonstrate the potential of artificial intelligence to enable small teams to achieve outsized results. The project was created by [Henry Shi](https://www.linkedin.com/in/henrythe9th/), a repeat founder who previously built a $150MM+ annual revenue startup.
 
 The initiative is inspired by Sam Altman's vision:
 > "We are now confident we know how to build AGI as we have traditionally understood it... There'll soon be a 1-person billion dollar company"
