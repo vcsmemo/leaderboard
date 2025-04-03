@@ -1,10 +1,10 @@
 // Configuration for progress calculations and metrics
 const progressConfig = {
     totalRevenue: {
-        value: 2157700000
+        value: 2176700000
     },
     revenuePerEmployee: {
-        value: 2884342,
+        value: 2853353,
         maxValue: 100000000, // $100MM
         minValue: 0,
         reverseScale: false // Higher is better
@@ -16,7 +16,7 @@ const progressConfig = {
         reverseScale: false // Higher is better
     },
     teamSize: {
-        value: 22,
+        value: 21,
         maxValue: 100,
         minValue: 1,
         reverseScale: true // Lower is better (closer to 1-person company)
