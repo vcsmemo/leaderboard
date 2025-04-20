@@ -245,8 +245,8 @@
                 <div class="animate-spin rounded-full h-10 sm:h-12 w-10 sm:w-12 border-4 border-gray-200 border-t-blue-500"></div>
                 <p class="text-gray-600 text-sm sm:text-base">Loading leaderboard data...</p>
             </div>
-            <iframe 
-                src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTbQVz2yedGcanpaPB8Tl5W30OepbI-c7R7L5hZibWaEP_KtpknNHvZaZrfvZec9EbjO13AMR7r3ry5/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false" 
+            <iframe
+                src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTbQVz2yedGcanpaPB8Tl5W30OepbI-c7R7L5hZibWaEP_KtpknNHvZaZrfvZec9EbjO13AMR7r3ry5/pubhtml?gid=0&single=true&widget=true&headers=false"
                 class="table-iframe"
                 onload="document.getElementById('iframe-loader').style.display = 'none';">
             </iframe>
@@ -395,17 +395,14 @@
             button.addEventListener('click', () => {
                 const content = button.nextElementSibling;
                 const arrow = button.querySelector('span');
-                
                 // Toggle content visibility
                 content.classList.toggle('hidden');
-                
                 // Update arrow
                 if (content.classList.contains('hidden')) {
                     arrow.textContent = '▶';
                 } else {
                     arrow.textContent = '▼';
                 }
-                
                 // Close other accordions
                 document.querySelectorAll('.faq-content').forEach(otherContent => {
                     if (otherContent !== content && !otherContent.classList.contains('hidden')) {
