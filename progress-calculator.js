@@ -58,9 +58,9 @@ function updateProgressBar(bar, percentText, percentage) {
     // Use setTimeout to ensure the browser registers the initial state before animating
     setTimeout(() => {
         // Now set the actual width
-        bar.style.width = '${percentage}%';
-        percentText.style.left = '${percentage}%';
-        percentText.textContent = '${Math.round(percentage)}%';
+        bar.style.width = `${percentage}%`;
+        percentText.style.left = `${percentage}%`;
+        percentText.textContent = `${Math.round(percentage)}%`;
     }, 50);
 }
 
